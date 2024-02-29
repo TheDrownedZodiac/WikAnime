@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>WikAnime</title>
+</head>
+
+<body>
+    <header>
+        <div class="text-center display-1 headTitle">
+            <h1 id="title">Accueil</h1>
+            <h1 id="dataTotal"></h1>
+        </div>
+        <nav class="navbar navbar-expand-lg navbarre">
+            <div class="container-fluid navbarre">
+                <a class="navbar-brand navbarre" href="#" onclick="handleHome()">Accueil</a>
+                <button class=" navbar-toggler navbarre" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon navbarre"></span>
+                </button>
+                <div class="collapse navbar-collapse navbarre" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbarre">
+                        <li id="genres" class="nav-item dropdown navbarre">
+                            <a id="titleGenres" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Genres
+                            </a>
+                            <ul id="genres-dropdown" class="dropdown-menu genres-dropdown"></ul>
+                        </li>
+                        <li id="saisons" class="nav-item dropdown navbarre">
+                            <a id="titleSeasons" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Saisons
+                            </a>
+                            <ul id="seasons-dropdown" class="dropdown-menu seasons-dropdown"></ul>
+                        </li>
+                    </ul>
+                    <ul id="typeButton" class="navbar-nav mb-2 mb-lg-0 type">
+                        <li id="type" class="nav-item dropdown navbarre">
+                            <a id="titleTypes" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Types
+                            </a>
+                            <ul id="type-dropdown" class="dropdown-menu ordre-dropdown dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#" onclick="handleType(event)"
+                                        data-type="tv">Anime</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="handleType(event)"
+                                        data-type="movie">Film</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="handleType(event)"
+                                        data-type="ova">OAV</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="handleType(event)"
+                                        data-type="special">Episode Special</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="handleType(event)"
+                                        data-type="ona">ONA</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul id="orderButton" class="navbar-nav mb-2 mb-lg-0 order">
+                        <li id="order" class="nav-item dropdown navbarre">
+                            <a id="titleOrders" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Ordres
+                            </a>
+                            <ul id="ordre-dropdown" class="dropdown-menu ordre-dropdown dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#" onclick="handleOrder(event)"
+                                        data-order="asc">Croissant</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="handleOrder(event)"
+                                        data-order="desc">Décroissant</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul id="filtreButton" class="navbar-nav mb-2 mb-lg-0 filtre">
+                        <li id="filtre" class="nav-item dropdown navbarre">
+                            <a id="titleFiltres" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Filtres
+                            </a>
+                            <ul id="filtre-dropdown" class="dropdown-menu filtre-dropdown dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#" onclick="handleFilter(event)"
+                                        data-filter="mal_id">Publication</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="handleFilter(event)"
+                                        data-filter="title">Titre</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="handleFilter(event)"
+                                        data-filter="score">Note</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="handleFilter(event)"
+                                        data-filter="rank">Rang</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="handleFilter(event)"
+                                        data-filter="popularity">Popularité</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex navbarre" id="search-label" role="search">
+                        <input list="searchList" id="animeSearch" class="form-control me-2" type="search"
+                            placeholder="Search" aria-label="Search">
+                        <datalist id="searchList"></datalist>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="section-1">
+            <div id="carouselExampleAutoplaying" class="carousel slide text-center w-75 m-auto" data-bs-ride="carousel">
+                <div id="carousel" class="carousel-inner">
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bttn" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon bttn" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
+            </div>
+        </section>
+        <section id="section-2" class="d-flex w-75 m-auto justify-content-around flex-wrap gap-3"></section>
+        <div id="switch-page" class="switch-page w-75">
+            <button id="previous" class="btn btn-primary previous" onclick="switchPage(event)">Previous</button>
+            <a id="pageId"></a>
+            <button id="next" class="btn btn-primary next" onclick="switchPage(event)">Next</button>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

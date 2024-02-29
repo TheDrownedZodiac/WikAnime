@@ -1,0 +1,58 @@
+@import url('https://fonts.cdnfonts.com/css/anime-ace');
+
+* {
+    font-family: 'Anime Ace', sans-serif !important;
+}
+
+.headTitle {
+    display: flex;
+    justify-content: center;
+}
+
+#carouselExampleAutoplaying {
+    margin-top: 24px !important;
+}
+
+.seasons-dropdown,
+.genres-dropdown {
+    height: 146px !important;
+    overflow-y: auto !important;
+    width: auto !important;
+}
+
+.anime-img {
+    padding-top: var(--bs-card-spacer-y);
+}
+
+.switch-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px auto !important;
+}
+
+.filtre,
+.order,
+.type {
+    margin-right: 12px;
+}
+
+.lesdetail {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.carousel-item .card-body {
+    display: flex;
+    align-items: center;
+}
+
+.carousel-item .card-body a {
+    width: 24%;
+}
